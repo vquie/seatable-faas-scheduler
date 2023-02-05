@@ -3,8 +3,8 @@ pipeline:
   build:
     image: docker:23.0.0
     secrets:
-      - CUSTOM_REGISTRY_USERNAME
-      - CUSTOM_REGISTRY_PASSWORD
+      - REGISTRY_USERNAME
+      - REGISTRY_PASSWORD
     commands:
       - while ! docker ps -a; do sleep 1; done
       - apk add --no-cache make
