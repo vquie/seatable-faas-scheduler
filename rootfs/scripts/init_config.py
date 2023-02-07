@@ -10,6 +10,8 @@ SEATABLE_FAAS_SCHEDULER_SERVER_LETSENCRYPT = os.getenv(
     'SEATABLE_FAAS_SCHEDULER_SERVER_LETSENCRYPT', 'False')
 SEATABLE_FAAS_SCHEDULER_SERVER_HOSTNAME = os.getenv(
     'SEATABLE_FAAS_SCHEDULER_SERVER_HOSTNAME', 'demo.faas-scheduler.seatable.cn')
+SEATABLE_FAAS_AUTH_TOKEN =  os.getenv(
+    'SEATABLE_FAAS_AUTH_TOKEN', uuid4().hex)
 
 server_prefix = 'https://' if SEATABLE_FAAS_SCHEDULER_SERVER_LETSENCRYPT == 'True' else 'http://'
 SERVER_URL = server_prefix + SEATABLE_FAAS_SCHEDULER_SERVER_HOSTNAME
@@ -33,7 +35,7 @@ RUNNER_URL = '%s'
 DTABLE_WEB_SERVICE_URL = '%s'
 SEATABLE_FAAS_AUTH_TOKEN = '%s'  # copy to dtable_web_settings.py
 
-""" % (DB_ROOT_PASSWD, DB_HOST, FAAS_URL, RUNNER_URL, DTABLE_WEB_SERVICE_URL, uuid4().hex)
+""" % (DB_ROOT_PASSWD, DB_HOST, FAAS_URL, RUNNER_URL, DTABLE_WEB_SERVICE_URL, SEATABLE_FAAS_AUTH_TOKEN)
 
 if not os.path.exists(seatable_faas_scheduler_config_path):
     with open(seatable_faas_scheduler_config_path, 'w') as f:
