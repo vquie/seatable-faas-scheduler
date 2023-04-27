@@ -1,6 +1,6 @@
 ARG VERSION=${VERSION}
 
-FROM --platform=linux/amd64 seatable/seatable-faas-scheduler:${VERSION}
+FROM seatable/seatable-faas-scheduler:${VERSION}
 
 COPY ./rootfs /
 
